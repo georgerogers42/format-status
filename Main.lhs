@@ -15,6 +15,7 @@
 > data Msg = Line T.Text
 >          | Tick
 >          | Done
+>          | Error IOError
 
 > gitLine :: IO (Either IOError T.Text)
 > gitLine = try TIO.getLine
@@ -33,15 +34,17 @@
 >       | E.isEOFError err -> do
 >         Q.put chan Done
 >       | otherwise -> do
->         throw err
+>         Q.put chan $ Error err
 >     Right line -> do
->       Q.put chan $! Line line
+>       Q.put chan $ Line line
 >       linesProc chan
 
 > output :: (Q.TakeQueue q IO) => T.Text -> q Msg -> IO ()
 > output state chan = do
 >   m <- Q.take chan
 >   case m of
+>     Error e ->
+>       throwIO e
 >     Done ->
 >       return ()
 >     Tick ->

@@ -22,7 +22,7 @@
 
 > ticksProc :: (Q.PutQueue q IO) => Int -> q Msg -> IO ()
 > ticksProc interval chan = do
->   threadDelay (interval * 10)
+>   threadDelay (interval * 100)
 >   Q.put chan $! Tick
 >   ticksProc interval chan
 

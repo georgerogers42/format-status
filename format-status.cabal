@@ -2,7 +2,7 @@
 -- documentation, see http://haskell.org/cabal/users-guide/
 
 name:                format-status
-version:             0.1.2.2
+version:             0.1.2.3
 synopsis:            A utility for writing the date to dzen2.
 -- description:         
 license:             MIT

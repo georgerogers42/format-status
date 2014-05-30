@@ -2,7 +2,7 @@
 -- documentation, see http://haskell.org/cabal/users-guide/
 
 name:                format-status
-version:             0.1.2.3
+version:             0.1.2.4
 synopsis:            A utility for writing the date to dzen2.
 -- description:         
 license:             MIT
@@ -26,4 +26,4 @@ executable format-status
                        data-concurrent-queue >= 0.3.0.0 && <0.4.0.0
   -- hs-source-dirs:      
   default-language:    Haskell2010
-  ghc-options:         -O2
+  ghc-options:         -O2 -threaded

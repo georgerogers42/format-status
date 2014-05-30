@@ -61,7 +61,7 @@
 
 > main :: IO ()
 > main = do
->   chan <- newChan
+>   chan <- newEmptyMVar
 >   _ <- forkIO $ linesProc chan
 >   _ <- forkIO $ ticksProc 500 chan
 >   output "" chan

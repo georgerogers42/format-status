@@ -6,6 +6,7 @@
 > import qualified Data.Text.IO as TIO
 > import Control.Exception
 > import System.IO.Error (IOError)
+> import qualified System.IO.Error as E
 > import Data.Time
 > import System.IO
 > import System.Locale
@@ -28,8 +29,11 @@
 > linesProc chan = do
 >   l <- gitLine
 >   case l of
->     Left err -> do
->       Q.put chan Done
+>     Left err 
+>       | E.isEOFError err -> do
+>         Q.put chan Done
+>       | otherwise -> do
+>         throw err
 >     Right line -> do
 >       Q.put chan $! Line line
 >       linesProc chan

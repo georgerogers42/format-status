@@ -14,12 +14,12 @@ catchIO = Exception.catch
 
 
 version :: Version
-version = Version {versionBranch = [0,1,0,1], versionTags = []}
+version = Version {versionBranch = [0,1,0,2], versionTags = []}
 bindir, libdir, datadir, libexecdir, sysconfdir :: FilePath
 
 bindir     = "/home/george/.cabal/bin"
-libdir     = "/home/george/.cabal/lib/x86_64-linux-ghc-7.4.1/format-status-0.1.0.1"
-datadir    = "/home/george/.cabal/share/x86_64-linux-ghc-7.4.1/format-status-0.1.0.1"
+libdir     = "/home/george/.cabal/lib/x86_64-linux-ghc-7.4.1/format-status-0.1.0.2"
+datadir    = "/home/george/.cabal/share/x86_64-linux-ghc-7.4.1/format-status-0.1.0.2"
 libexecdir = "/home/george/.cabal/libexec"
 sysconfdir = "/home/george/.cabal/etc"
 
